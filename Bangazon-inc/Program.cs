@@ -8,7 +8,18 @@ namespace Bangazon_inc
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var drumWorks = new Company("Drum Works", new DateTime());
+            var vinnieCalaiuta = new Employee("Vinnie Calaiuta", "Chief Drumming Officer", new DateTime());
+            var jackDejohnette = new Employee("Jack DeJohnette", "VP Jazz", new DateTime());
+            var johnBonham = new Employee("John Bonham", "CEO", new DateTime());
+
+            drumWorks.AddEmployee(vinnieCalaiuta);
+            drumWorks.AddEmployee(jackDejohnette);
+            drumWorks.AddEmployee(johnBonham);
+
+            drumWorks.ListEmployees();
+
+            Console.ReadLine();
         }
 
         public class Company
@@ -18,19 +29,28 @@ namespace Bangazon_inc
             */
             public string Name { get; }
             public DateTime CreatedOn { get; }
+
             // Create a property for holding a list of current employees
-            List<Employee> employees = new List<Employee>();
+            List<Employee> CurrentPeeps { get; } = new List<Employee>();
 
             // Create a method that allows external code to add an employee
             public void AddEmployee(Employee newEmployee)
             {
-                employees.Add(newEmployee);
+                CurrentPeeps.Add(newEmployee);
             }
 
             // Create a method that allows external code to remove an employee
             public void RemoveEmployee(Employee firedEmployee)
             {
-                employees.Remove(firedEmployee);
+                CurrentPeeps.Remove(firedEmployee);
+            }
+
+            public void ListEmployees()
+            {
+                foreach (var employee in CurrentPeeps)
+                {
+                    Console.WriteLine("employee.EmployeeName");
+                }
             }
             /*
                 Create a constructor method that accepts two arguments:
@@ -39,6 +59,13 @@ namespace Bangazon_inc
 
                 The constructor will set the value of the public properties
             */
+            public Company(string name, DateTime createdOn)
+            {
+                Name = name;
+                CreatedOn = createdOn;
+            }
+
+
         }
     }
 }

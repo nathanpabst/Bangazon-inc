@@ -6,13 +6,18 @@ namespace Bangazon_inc.Stuff
 {
     class Employee
     {
-        public string EmployeeName { get; private set; } = "";
+        public string EmployeeName { get; } 
 
-        public string JobTitle { get; private set; } = "";
+        public string JobTitle { get; } 
 
-        public int StartDate {get; private set;} = 0;
+        public DateTime StartDate {get; } 
 
-        
+        public Employee(string employeeName, string jobTitle, DateTime startDate)
+        {
+            EmployeeName = employeeName;
+            JobTitle = jobTitle;
+            StartDate = startDate;
+        }
     }
     
 }
