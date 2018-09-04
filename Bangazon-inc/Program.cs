@@ -49,7 +49,7 @@ namespace Bangazon_inc
             {
                 foreach (var employee in CurrentPeeps)
                 {
-                    Console.WriteLine("employee.EmployeeName");
+                    Console.WriteLine(employee.EmployeeName);
                 }
             }
             /*
